@@ -1,7 +1,7 @@
-import { RioSampleApp } from './sample-app';
-import { SAMPLE_APP_ROUTES } from './sample-app.routes';
+import { MyApp } from './my-app';
+import { MY_APP_ROUTES } from './my-app.routes';
 
 export {
-  RioSampleApp,
-  SAMPLE_APP_ROUTES
+  MyApp,
+  MY_APP_ROUTES
 };

@@ -10,7 +10,7 @@ import 'ts-helpers';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 // The app module
-import {RioSampleAppModule} from './app/sample-app.module';
+import {MyAppModule} from './app/my-app.module';
 import {enableProdMode} from '@angular/core';
 
 if (__PRODUCTION__) {
@@ -21,5 +21,5 @@ if (__PRODUCTION__) {
 
 if (!__TEST__) {
   // Compile and launch the module
-  platformBrowserDynamic().bootstrapModule(RioSampleAppModule);
+  platformBrowserDynamic().bootstrapModule(MyAppModule);
 }
