@@ -1,6 +1,7 @@
 import {NgModule}      from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 import {
   DevToolsExtension,
   NgRedux
@@ -15,18 +16,25 @@ import {
   FormBuilder,
   ReactiveFormsModule
 } from '@angular/forms';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MyApp} from './my-app';
+import {
+  HomePage
+} from '../pages';
 
 @NgModule({
   imports: [
+    NgbModule,
     BrowserModule,
+    FormsModule,
     routing,
     ReactiveFormsModule,
     CommonModule,
     HttpModule
   ],
   declarations: [
-    MyApp
+    MyApp,
+    HomePage
   ],
   bootstrap: [
     MyApp

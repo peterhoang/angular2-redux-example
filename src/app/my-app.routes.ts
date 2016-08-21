@@ -1,5 +1,8 @@
 import {Routes} from '@angular/router';
 import {MyApp} from './my-app';
+import {
+  HomePage
+} from '../pages';
 
 export const MY_APP_ROUTES: Routes = [{
   pathMatch: 'full',
@@ -7,5 +10,5 @@ export const MY_APP_ROUTES: Routes = [{
   redirectTo: '/home'
 }, {
   path: 'home',
-  component: MyApp
+  component: HomePage
 }];

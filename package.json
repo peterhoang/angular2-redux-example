@@ -39,6 +39,8 @@
     "url": "https://github.com/rangle/rangle-starter/issues"
   },
   "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.2",
+    "bootstrap": "^4.0.0-alpha.3",
     "express": "^4.13.4",
     "helmet": "^2.0.0",
     "http-proxy": "^1.13.2",
