@@ -16,10 +16,6 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import {MyApp} from './my-app';
-import {
-  HomePage
-} from '../pages';
-
 
 @NgModule({
   imports: [
@@ -30,8 +26,7 @@ import {
     HttpModule
   ],
   declarations: [
-    MyApp,
-    HomePage
+    MyApp
   ],
   bootstrap: [
     MyApp
