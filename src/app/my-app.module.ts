@@ -21,8 +21,12 @@ import {MyApp} from './my-app';
 import {
   HomePage
 } from '../pages';
-import { SessionActions } from '../actions/session.actions';
-import { SessionEpics } from '../epics/session.epics';
+import {
+  SessionActions,
+  MarvelActions } from '../actions';
+import {
+  SessionEpics,
+  MarvelEpics } from '../epics';
 import {
   Navigator
 } from '../components/navigator';
@@ -40,7 +44,7 @@ import {
   declarations: [
     MyApp,
     Navigator,
-    HomePage    
+    HomePage
   ],
   bootstrap: [
     MyApp
@@ -52,7 +56,9 @@ import {
     NgReduxRouter,
     appRoutingProviders,
     SessionActions,
-    SessionEpics
+    SessionEpics,
+    MarvelActions,
+    MarvelEpics
   ]
 })
 export class MyAppModule { }
