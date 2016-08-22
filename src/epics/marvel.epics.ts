@@ -23,7 +23,8 @@ export class MarvelEpics {
           }))
           .catch(error => {
             return Observable.of({
-              type: MarvelActions.MARVEL_GENERIC_ERROR
+              type: MarvelActions.MARVEL_GENERIC_ERROR,
+              payload: error.json()
             });
           });
         });
