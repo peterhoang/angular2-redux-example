@@ -21,6 +21,11 @@ import {MyApp} from './my-app';
 import {
   HomePage
 } from '../pages';
+import { SessionActions } from '../actions/session.actions';
+import { SessionEpics } from '../epics/session.epics';
+import {
+  Navigator
+} from '../components/navigator';
 
 @NgModule({
   imports: [
@@ -34,7 +39,8 @@ import {
   ],
   declarations: [
     MyApp,
-    HomePage
+    Navigator,
+    HomePage    
   ],
   bootstrap: [
     MyApp
@@ -44,7 +50,9 @@ import {
     FormBuilder,
     NgRedux,
     NgReduxRouter,
-    appRoutingProviders
+    appRoutingProviders,
+    SessionActions,
+    SessionEpics
   ]
 })
 export class MyAppModule { }

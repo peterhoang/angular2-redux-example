@@ -1,15 +1,9 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'rio-navigator',
-  template: `
-    <nav
-      [attr.data-testid]="testid"
-      class="flex items-center p1 bg-white border-bottom">
-      <ng-content></ng-content>
-    </nav>
-  `
+  selector: 'my-navigator',
+  template: require('./navigator.component.html')
 })
-export class RioNavigator {
+export class Navigator {
   @Input() testid: string;
 };
