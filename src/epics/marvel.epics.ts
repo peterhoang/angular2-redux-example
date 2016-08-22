@@ -7,7 +7,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/catch';
 
-const BASE_URL = 'https://gateway.marvel.com/';
 const APIKEY = '0f686698f337fe4e6b54c4fa1f5b7430';
 
 @Injectable()
@@ -15,12 +14,12 @@ export class MarvelEpics {
   constructor(private http: Http) {}
 
   getCharacters = (action$: Observable<IPayloadAction>) => {
-    return action$
+    return action$.filter(({ type }) => type === MarvelActions.GET_CHARACTERS)
       .flatMap(({ payload }) => {
-        return this.http.get(`${BASE_URL}/v1/public/characters&apikey=${APIKEY}`)
+        return this.http.get(`/marvel/characters?apikey=${APIKEY}`)
           .map(result => ({
             type: MarvelActions.GET_CHARACTERS_SUCCESS,
-            payload: result.json().data
+            payload: result.json()
           }))
           .catch(error => {
             return Observable.of({

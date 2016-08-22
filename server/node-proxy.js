@@ -15,7 +15,14 @@ module.exports = (app) => {
   }
 
   const proxy = httpProxy.createProxyServer()
-    .on('error', e => winston.error(e));
+    .on('error', e => winston.error(e))
+    .on('proxyReq', function (proxyReq, req, res) {
+      winston.log('info', 'Request ' + JSON.stringify(proxyReq.headers, true, 2));
+    })
+    .on('proxyRes', function (proxyRes, req, res) {
+      winston.log('info', 'RAW Response from the target ' + JSON.stringify(proxyRes.headers, true, 2));
+    });
+
 
   paths.forEach(path => {
     const config = proxyConfig[path];

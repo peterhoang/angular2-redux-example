@@ -22,4 +22,9 @@ module.exports = {
     changeOrigin: true,
   },
   */
+
+  '/marvel/': {
+    target: 'https://gateway.marvel.com/v1/public',
+    changeOrigin: true,
+  },
 };

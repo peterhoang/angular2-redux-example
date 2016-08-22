@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import { MarvelActions } from '../actions/marvel.actions';
 
 @Component({
   selector: 'home-page',
@@ -12,25 +13,12 @@ export class HomePage {
 
   private backup: Array<IAlert>;
 
-  constructor() {
-    this.alerts.push({
-      id: 1,
-      type: 'success',
-      message: 'This is an success alert',
-    }, {
-      id: 2,
-      type: 'info',
-      message: 'This is an info alert',
-    }, {
-      id: 3,
-      type: 'warning',
-      message: 'This is a warning alert',
-    }, {
-      id: 4,
-      type: 'danger',
-      message: 'This is a danger alert',
-    });
-    this.backup = this.alerts.map((alert: IAlert) => Object.assign({}, alert));
+  constructor(private actions: MarvelActions) {
+
+  }
+
+  ngOnInit() {
+    
   }
 
   public closeAlert(alert: IAlert) {

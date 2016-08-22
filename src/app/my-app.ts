@@ -4,10 +4,12 @@ import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { DevToolsExtension, NgRedux, select } from 'ng2-redux';
 import { NgReduxRouter } from 'ng2-redux-router';
-import { createEpicMiddleware } from 'redux-observable';
+import { combineEpics, createEpicMiddleware } from 'redux-observable';
 
 import { IAppState, ISession, rootReducer } from '../store';
-import { SessionEpics } from '../epics/session.epics';
+import {
+  SessionEpics,
+  MarvelEpics } from '../epics';
 import { middleware, enhancers, reimmutify } from '../store';
 
 @Component({
@@ -19,7 +21,8 @@ export class MyApp {
     private devTools: DevToolsExtension,
     private ngRedux: NgRedux<IAppState>,
     private ngReduxRouter: NgReduxRouter,
-    private epics: SessionEpics) {
+    private epics: SessionEpics,
+    private marvelEpics: MarvelEpics) {
 
     const enh = (__DEV__ && devTools.isEnabled()) ?
       [ ... enhancers, devTools.enhancer({
@@ -27,7 +30,11 @@ export class MyApp {
       }) ] :
       enhancers;
 
-    middleware.push(createEpicMiddleware(this.epics.login));
+    const rootEpics = combineEpics(
+      this.epics.login,
+      this.marvelEpics.getCharacters
+    );
+    middleware.push(createEpicMiddleware(rootEpics));
 
     ngRedux.configureStore(rootReducer, {}, middleware, enhancers);
     ngReduxRouter.initialize();

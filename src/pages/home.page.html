@@ -1,16 +1,7 @@
-<div [(ngModel)]="model" ngbRadioGroup name="radioBasic">
-  <label class="btn btn-primary">
-    <input type="radio" [value]="1"> Left (pre-checked)
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" value="middle"> Middle
-  </label>
-  <label class="btn btn-primary">
-    <input type="radio" [value]="false"> Right
-  </label>
+<div>
+  <button type="button" class="btn btn-primary" (click)="actions.getCharacters()">TEST</button>
 </div>
-<hr>
-<pre>{{model}}</pre>
+<hr />
 
 <p *ngFor="let alert of alerts">
   <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>

@@ -4,8 +4,8 @@ import { IAppState } from '../store';
 
 @Injectable()
 export class MarvelActions {
-  static GET_CHARACTERS = 'GET_CHARACTERS';
-  static GET_CHARACTERS_SUCCESS = 'GET_CHARACTERS_SUCCESS';
+  static GET_CHARACTERS = 'MARVEL_GET_CHARACTERS';
+  static GET_CHARACTERS_SUCCESS = 'MARVEL_GET_CHARACTERS_SUCCESS';
   static MARVEL_GENERIC_ERROR = 'MARVEL_GENERIC_ERROR';
 
   constructor(private ngRedux: NgRedux<IAppState>) {}
