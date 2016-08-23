@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
-import { DevToolsExtension, NgRedux, select } from 'ng2-redux';
+import { select } from 'ng2-redux';
 import { MarvelActions } from '../actions/marvel.actions';
 
 @Component({
