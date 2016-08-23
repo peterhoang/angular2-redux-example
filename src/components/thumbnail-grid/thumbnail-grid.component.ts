@@ -13,7 +13,7 @@ export class ThumbnailGrid {
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'extension']) ext$: Observable<string>;
   @select(['marvel', 'data', 'results']) characters$: Observable<Object>;
 
-  private imgsrc: string;
+  private images: Array<string>;
 
   ngOnInit() {
     this.path$
@@ -27,18 +27,22 @@ export class ThumbnailGrid {
       .startWith({
         ext: '',
         path: 'http://placehold.it/400x300'
-      })
-      .subscribe(t => {
-        this.imgsrc = t.path + t.ext;
       });
 
     this.characters$
       .filter(results => { return results != null; })
-      .subscribe((results: any) => {
+      .map((results: any) => {
         let characters = results.toJS();
+        let images = [];
         characters.forEach(char => {
-          this.imgsrc = char.thumbnail.path + '/standard_xlarge.' + char.thumbnail.extension;
+          images.push(char.thumbnail.path + '/standard_medium.' + char.thumbnail.extension);
         });
+        return {
+          thumbnails: images
+        };
+      })
+      .subscribe((data: any) => {
+        this.images = data.thumbnails;
       });
   }
 }
