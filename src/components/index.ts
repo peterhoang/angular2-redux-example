@@ -6,6 +6,7 @@ import { RioLogo } from './logo';
 import { RioLoginModal, RioLoginForm } from './login';
 import { Navigator, RioNavigatorItem } from './navigator';
 import { RioModal, RioModalContent } from './modal';
+import { ThumbnailGrid } from './thumbnail-grid';
 import {
   RioForm,
   RioFormError,
@@ -30,5 +31,6 @@ export {
   RioModal,
   RioModalContent,
   Navigator,
-  RioNavigatorItem
+  RioNavigatorItem,
+  ThumbnailGrid
 };

@@ -16,3 +16,7 @@ import 'core-js/es6/reflect';
 import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 import '../shims/shims_for_IE';
+
+import 'rxjs/add/operator/combineLatest';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/startWith';

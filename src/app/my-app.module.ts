@@ -30,6 +30,7 @@ import {
 import {
   Navigator
 } from '../components/navigator';
+import { UiModule } from '../components/ui/ui.module';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import {
     routing,
     ReactiveFormsModule,
     CommonModule,
-    HttpModule
+    HttpModule,
+    UiModule
   ],
   declarations: [
     MyApp,

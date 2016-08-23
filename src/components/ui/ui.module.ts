@@ -4,6 +4,7 @@ import {RioAlert} from '../alert/alert.component';
 import {RioButton} from '../button/button.component';
 import {RioLogo} from '../logo/logo.component';
 import {RioContainer} from '../container/container.component';
+import {ThumbnailGrid} from '../thumbnail-grid/thumbnail-grid.component';
 
 @NgModule({
   imports: [
@@ -13,13 +14,15 @@ import {RioContainer} from '../container/container.component';
     RioAlert,
     RioButton,
     RioLogo,
-    RioContainer
+    RioContainer,
+    ThumbnailGrid
   ],
   exports: [
     RioAlert,
     RioButton,
     RioLogo,
-    RioContainer
+    RioContainer,
+    ThumbnailGrid
   ]
 })
-export class RioUiModule { }
+export class UiModule { }
