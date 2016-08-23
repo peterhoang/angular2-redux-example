@@ -91,7 +91,10 @@ const baseConfig = {
 
   devServer: {
     historyApiFallback: { index: '/' },
-    proxy: Object.assign({}, proxy(), { '/api/*': 'http://localhost:3000' }),
+    proxy: Object.assign({}, proxy(), {
+      '/api/*': 'http://localhost:3000',
+      '/marvel/*': 'http://localhost:3000'
+    }),
     headers: { "Access-Control-Allow-Origin": "*" }
   },
 
