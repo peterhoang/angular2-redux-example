@@ -16,7 +16,7 @@ export class MarvelEpics {
   getCharacters = (action$: Observable<IPayloadAction>) => {
     return action$.filter(({ type }) => type === MarvelActions.GET_CHARACTERS)
       .flatMap(({ payload }) => {
-        return this.http.get(`/marvel/characters?apikey=${APIKEY}`)
+        return this.http.get(`/api/characters?apikey=${APIKEY}`)
           .map(result => ({
             type: MarvelActions.GET_CHARACTERS_SUCCESS,
             payload: result.json()
