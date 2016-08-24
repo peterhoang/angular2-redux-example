@@ -44,7 +44,7 @@ export class ThumbnailGrid {
         let characters = results.toJS();
         let images = [];
         characters.forEach(char => {
-          char.resolvedImage = (char.thumbnail.path + '/standard_large.' + char.thumbnail.extension);
+          char.resolvedImage = (char.thumbnail.path + '/standard_amazing.' + char.thumbnail.extension);
         });
         return characters;
       })
@@ -54,7 +54,7 @@ export class ThumbnailGrid {
   }
 
   onScrollDown() {
-    this.offset += 20;
+    this.offset += 30;
     this.actions.getCharacters(this.offset);
   }
 }

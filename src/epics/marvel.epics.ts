@@ -22,6 +22,7 @@ export class MarvelEpics {
         if (payload.offset) {
           params.set('offset', payload.offset);
         }
+        params.set('limit', '30');
 
         return this.http.get('/marvel/characters', { search: params })
           .map(result => ({

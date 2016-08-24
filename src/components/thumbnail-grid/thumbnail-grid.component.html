@@ -10,9 +10,12 @@
   </div>
 </div>
 <div class="row">
-  <div *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-3" style="padding:10px;">
-    <a class="thumbnail" href="#" placement="right" ngbTooltip="{{ character.name }}">
-      <img class="img-rounded" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
-    </a>
+  <div *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-2">
+    <div class="card card-inverse" ngbPopover="{{ character.name }}" triggers="mouseenter:mouseleave">
+      <img class="img-fluid card-img" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
+      <div class="card-img-overlay">
+        <h6 class="card-title">{{ character.name }}</h6>
+      </div>
+    </div>
   </div>
 </div>
