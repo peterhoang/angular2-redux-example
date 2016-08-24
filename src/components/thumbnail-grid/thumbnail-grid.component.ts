@@ -55,6 +55,6 @@ export class ThumbnailGrid {
 
   onScrollDown() {
     this.offset += 30;
-    this.actions.getCharacters(this.offset);
+    this.actions.getCharacters({ offset: this.offset });
   }
 }

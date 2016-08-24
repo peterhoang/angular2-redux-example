@@ -19,7 +19,7 @@ export class MarvelEpics {
 
         let params = new URLSearchParams();
         params.set('apikey', APIKEY);
-        if (payload.offset) {
+        if (payload && payload.offset) {
           params.set('offset', payload.offset);
         }
         params.set('limit', '30');

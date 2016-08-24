@@ -10,13 +10,10 @@ export class MarvelActions {
 
   constructor(private ngRedux: NgRedux<IAppState>) {}
 
-  getCharacters(offset?: number, limit?: number) {
+  getCharacters(payload) {
     this.ngRedux.dispatch({
       type: MarvelActions.GET_CHARACTERS,
-      payload: {
-        offset: offset,
-        limit: limit
-      }
+      payload: payload
     });
   };
 }

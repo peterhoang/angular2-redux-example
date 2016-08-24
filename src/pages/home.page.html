@@ -1,5 +1,15 @@
-<div>
-  <button type="button" class="btn btn-primary" (click)="actions.getCharacters()">LOAD</button>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Find!</button>
+      </span>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <button type="button" class="btn btn-primary" (click)="actions.getCharacters()">LOAD</button>
+  </div>
 </div>
 
 <hr />
