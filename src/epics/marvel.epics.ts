@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, URLSearchParams } from '@angular/http';
 import { IPayloadAction, MarvelActions } from '../actions';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
@@ -16,7 +16,14 @@ export class MarvelEpics {
   getCharacters = (action$: Observable<IPayloadAction>) => {
     return action$.filter(({ type }) => type === MarvelActions.GET_CHARACTERS)
       .flatMap(({ payload }) => {
-        return this.http.get(`/marvel/characters?apikey=${APIKEY}`)
+
+        let params = new URLSearchParams();
+        params.set('apikey', APIKEY);
+        if (payload.offset) {
+          params.set('offset', payload.offset);
+        }
+
+        return this.http.get('/marvel/characters', { search: params })
           .map(result => ({
             type: MarvelActions.GET_CHARACTERS_SUCCESS,
             payload: result.json()

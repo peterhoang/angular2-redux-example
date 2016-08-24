@@ -1,10 +1,16 @@
+<div infinite-scroll
+     [infiniteScrollDistance]="50"
+     [infiniteScrollThrottle]="500"
+     (scrolled)="onScrollDown()">
+</div>
+
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Characters</h1>
   </div>
 </div>
 <div class="row">
-  <div *ngFor="let character of characters" class="col-xs-6 col-sm-3" style="padding:10px;">
+  <div *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-3" style="padding:10px;">
     <a class="thumbnail" href="#" placement="right" ngbTooltip="{{ character.name }}">
       <img class="img-rounded" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
     </a>
