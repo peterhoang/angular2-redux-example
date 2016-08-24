@@ -19,6 +19,7 @@ const postcssInit = require('./webpack/postcss');
 const devConfig = {
   entry: {
     app: './src/index.ts',
+    vendor: './src/vendor.ts',
     polyfills: './src/polyfills.ts',
   },
   output: {

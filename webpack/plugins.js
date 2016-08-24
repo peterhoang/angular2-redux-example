@@ -33,11 +33,7 @@ const basePlugins = [
 const devPlugins = [
   // do type checking in a separate process
   new ForkCheckerPlugin(),
-  new StyleLintPlugin({
-    configFile: './.stylelintrc',
-    files: 'src/**/*.css',
-    failOnError: false,
-  }),
+
   // since polyfills are in a non-imported entry file
   new webpack.optimize.CommonsChunkPlugin({
     name: ['polyfills'],

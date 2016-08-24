@@ -35,7 +35,7 @@ export class ThumbnailGrid {
         let characters = results.toJS();
         let images = [];
         characters.forEach(char => {
-          char.resolvedImage = (char.thumbnail.path + '/standard_medium.' + char.thumbnail.extension);
+          char.resolvedImage = (char.thumbnail.path + '/standard_large.' + char.thumbnail.extension);
         });
         return characters;
       })
