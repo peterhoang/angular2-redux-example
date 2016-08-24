@@ -5,13 +5,8 @@
 </div>
 <div class="row">
   <div *ngFor="let character of characters" class="col-xs-6 col-sm-3" style="padding:10px;">
-    <a class="thumbnail" href="#">
+    <a class="thumbnail" href="#" placement="right" ngbTooltip="{{ character.name }}">
       <img class="img-rounded" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
     </a>
   </div>
-</div>
-<div class="row">
-  <button type="button" class="btn btn-secondary" placement="top" ngbTooltip="Tooltip on top">
-    Tooltip on top
-  </button>
 </div>
