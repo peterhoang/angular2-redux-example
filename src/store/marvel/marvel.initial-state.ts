@@ -6,7 +6,7 @@ import {
   IMarvelCharacterResults,
   IMarvelCharacterResultsRecord
 } from './marvel.types';
-
+import { List } from 'immutable';
 import { makeTypedFactory } from 'typed-immutable-record';
 
 
@@ -20,7 +20,7 @@ export const MarvelCharacterResultsFactory = makeTypedFactory<IMarvelCharacterRe
   limit: 0,
   total: 0,
   counter: 0,
-  results: null
+  results: List(MarvelCharacterFactory())
 });
 
 export const MarvelFactory = makeTypedFactory<IMarvel, IMarvelRecord>({
