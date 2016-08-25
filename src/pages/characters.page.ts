@@ -20,9 +20,11 @@ import 'rxjs/add/operator/scan';
 export class CharactersPage {
   @select(['marvel', 'data', 'count']) private count$: Observable<number>;
 
+  private isLoaded: boolean = false;
+
   constructor(private actions: MarvelActions) {  }
 
   ngOnInit() {
-
+    this.isLoaded = true;
   }
 }

@@ -5,10 +5,9 @@ import { select } from 'ng2-redux';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { MarvelActions } from '../../actions/marvel.actions';
 import { MyAppSettings } from '../../app/my-app.settings';
+
 import 'rxjs/add/operator/combineLatest';
-import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/startWith';
-import 'rxjs/add/operator/scan';
 
 @Component({
   pipes: [AsyncPipe],
@@ -19,7 +18,7 @@ import 'rxjs/add/operator/scan';
 export class ThumbnailGrid {
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'path']) path$: Observable<string>;
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'extension']) ext$: Observable<string>;
-  @select(['marvel', 'data', 'results']) results$: Observable<Array<Object>>;
+  @select(state => state.marvel.data.results) results$: Observable<Array<Object>>;
 
   private characters$: Observable<Array<Object>>;
   private offset: number;
@@ -46,16 +45,12 @@ export class ThumbnailGrid {
     this.characters$ = this.results$
       .filter(results => { return results != null; })
       .map((results: any) => {
-        let characters = results.toJS();
         let images = [];
-        characters.forEach(char => {
+        results.forEach(char => {
           char.resolvedImage = (char.thumbnail.path + '/standard_amazing.' + char.thumbnail.extension);
         });
-        return characters;
+        return results;
       });
-      //.scan((acc: any, value: any) => {
-      //  return acc.concat(value);
-      //});
   }
 
   onScrollDown() {
