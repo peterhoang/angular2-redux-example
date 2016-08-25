@@ -26,7 +26,6 @@ export class ThumbnailGrid {
 
   constructor(private actions: MarvelActions, private appSettings: MyAppSettings) {
     this.offset = 0;
-    this.characters$ = Observable.from([]);
   }
 
   ngOnInit() {
