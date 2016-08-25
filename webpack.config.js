@@ -19,7 +19,6 @@ const postcssInit = require('./webpack/postcss');
 const devConfig = {
   entry: {
     app: './src/index.ts',
-    vendor: './src/vendor.ts',
     polyfills: './src/polyfills.ts',
   },
   output: {
@@ -64,7 +63,6 @@ const prodConfig = {
       '@angular/platform-browser',
       '@angular/platform-browser-dynamic',
       '@angular/router',
-      'rxjs',
       'ng2-redux',
       'ng2-redux-router',
       'redux',
@@ -72,7 +70,7 @@ const prodConfig = {
       'redux-localstorage',
       'redux-observable',
       'redux-logger',
-      'typed-immutable-record',
+      'typed-immutable-record'
     ],
   },
   output: {

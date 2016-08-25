@@ -5,6 +5,10 @@ import { select } from 'ng2-redux';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { MarvelActions } from '../../actions/marvel.actions';
 import { MyAppSettings } from '../../app/my-app.settings';
+import 'rxjs/add/operator/combineLatest';
+import 'rxjs/add/operator/merge';
+import 'rxjs/add/operator/startWith';
+import 'rxjs/add/operator/scan';
 
 @Component({
   pipes: [AsyncPipe],
