@@ -2,7 +2,6 @@ import {Component, Input} from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { select } from 'ng2-redux';
-import { MarvelActions } from '../actions/marvel.actions';
 
 @Component({
   pipes: [AsyncPipe],
@@ -15,9 +14,6 @@ export class HomePage {
 
   @select(['marvel', 'hasError']) hasError$: Observable<boolean>;
   @select(state => state.marvel) marvelState$: Observable<any>;
-
-  constructor(private actions: MarvelActions) {
-  }
 
   ngOnInit() {
     this.marvelState$

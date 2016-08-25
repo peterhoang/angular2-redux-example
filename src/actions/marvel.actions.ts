@@ -10,7 +10,7 @@ export class MarvelActions {
 
   constructor(private ngRedux: NgRedux<IAppState>) {}
 
-  getCharacters(payload) {
+  getCharacters(payload?: any) {
     this.ngRedux.dispatch({
       type: MarvelActions.GET_CHARACTERS,
       payload: payload

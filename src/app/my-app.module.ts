@@ -19,11 +19,13 @@ import {
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MyApp} from './my-app';
 import {
-  HomePage
+  HomePage,
+  CharactersPage
 } from '../pages';
 import {
   SessionActions,
   MarvelActions } from '../actions';
+import { MyAppSettings } from './my-app.settings';
 import {
   SessionEpics,
   MarvelEpics } from '../epics';
@@ -46,7 +48,8 @@ import { UiModule } from '../components/ui/ui.module';
   declarations: [
     MyApp,
     Navigator,
-    HomePage
+    HomePage,
+    CharactersPage
   ],
   bootstrap: [
     MyApp
@@ -60,7 +63,8 @@ import { UiModule } from '../components/ui/ui.module';
     SessionActions,
     SessionEpics,
     MarvelActions,
-    MarvelEpics
+    MarvelEpics,
+    MyAppSettings
   ]
 })
 export class MyAppModule { }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { select } from 'ng2-redux';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { MarvelActions } from '../../actions/marvel.actions';
+import { MyAppSettings } from '../../app/my-app.settings';
 
 @Component({
   pipes: [AsyncPipe],
@@ -19,7 +20,7 @@ export class ThumbnailGrid {
   private characters$: Observable<Array<Object>>;
   private offset: number;
 
-  constructor(private actions: MarvelActions) {
+  constructor(private actions: MarvelActions, private appSettings: MyAppSettings) {
     this.offset = 0;
     this.characters$ = Observable.from([]);
   }
@@ -54,7 +55,7 @@ export class ThumbnailGrid {
   }
 
   onScrollDown() {
-    this.offset += 30;
+    this.offset += this.appSettings.ITEMS_PER_PAGE;
     this.actions.getCharacters({ offset: this.offset });
   }
 }

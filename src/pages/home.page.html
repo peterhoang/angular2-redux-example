@@ -7,15 +7,5 @@
       </span>
     </div>
   </div>
-  <div class="col-lg-6">
-    <button type="button" class="btn btn-primary" (click)="actions.getCharacters()">LOAD</button>
-  </div>
 </div>
-
 <hr />
-
-<p *ngFor="let alert of alerts">
-  <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
-</p>
-
-<thumbnail-grid></thumbnail-grid>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
 import { IPayloadAction, MarvelActions } from '../actions';
 import { Observable } from 'rxjs/Observable';
+import { MyAppSettings } from '../app/my-app.settings';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/filter';
@@ -11,7 +12,7 @@ const APIKEY = '0f686698f337fe4e6b54c4fa1f5b7430';
 
 @Injectable()
 export class MarvelEpics {
-  constructor(private http: Http) {}
+  constructor(private http: Http, private appSettings: MyAppSettings) {}
 
   getCharacters = (action$: Observable<IPayloadAction>) => {
     return action$.filter(({ type }) => type === MarvelActions.GET_CHARACTERS)
@@ -22,7 +23,7 @@ export class MarvelEpics {
         if (payload && payload.offset) {
           params.set('offset', payload.offset);
         }
-        params.set('limit', '30');
+        params.set('limit', this.appSettings.ITEMS_PER_PAGE.toString());
 
         return this.http.get('/marvel/characters', { search: params })
           .map(result => ({

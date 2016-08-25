@@ -1,7 +1,8 @@
 import {Routes} from '@angular/router';
 import {MyApp} from './my-app';
 import {
-  HomePage
+  HomePage,
+  CharactersPage
 } from '../pages';
 
 export const MY_APP_ROUTES: Routes = [{
@@ -11,4 +12,7 @@ export const MY_APP_ROUTES: Routes = [{
 }, {
   path: 'home',
   component: HomePage
+}, {
+  path: 'characters',
+  component: CharactersPage
 }];
