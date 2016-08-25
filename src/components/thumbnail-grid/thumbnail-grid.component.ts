@@ -52,10 +52,10 @@ export class ThumbnailGrid {
           char.resolvedImage = (char.thumbnail.path + '/standard_amazing.' + char.thumbnail.extension);
         });
         return characters;
+      })
+      .scan((acc: any, value: any) => {
+        return acc.concat(value);
       });
-      //.scan((acc: any, value: any) => {
-      //  return acc.concat(value);
-      //});
   }
 
   onScrollDown() {
