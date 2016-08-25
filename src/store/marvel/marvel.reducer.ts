@@ -2,6 +2,7 @@ import { IPayloadAction } from '../../actions';
 import { MarvelActions } from '../../actions/marvel.actions';
 import { INITIAL_STATE } from './marvel.initial-state';
 import { IMarvelRecord } from './marvel.types';
+import { List } from 'immutable';
 
 export function marvelReducer(
   state: IMarvelRecord = INITIAL_STATE,
@@ -12,7 +13,17 @@ export function marvelReducer(
   switch (action.type) {
 
     case MarvelActions.GET_CHARACTERS_SUCCESS:
-      return state.merge({
+      let merger = (prev, next) => {
+        if (List.isList(prev) && List.isList(next)) {
+          return prev.concat(next);
+        }
+        if (prev && prev.mergeWith) {
+          return prev.mergeWith(merger, next);
+        }
+        return next;
+      };
+
+      return state.mergeWith(merger, {
         code: payload.code,
         status: payload.status,
         copyright: payload.copyright,
@@ -36,7 +47,7 @@ export function marvelReducer(
       });
 
     case MarvelActions.GET_CHARACTERS:
-      return INITIAL_STATE;
+      return state;
 
     default:
       return state;

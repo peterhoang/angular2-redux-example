@@ -3,7 +3,7 @@
      [infiniteScrollDistance]="2"
      [infiniteScrollThrottle]="500"
      (scrolled)="onScrollDown()">
-  <div class="row">
+  <div class="row" style="margin-top:40px;">
     <div *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-2">
       <div class="card card-inverse" ngbPopover="{{ character.name }}" triggers="mouseenter:mouseleave">
         <img class="img-fluid card-img" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
