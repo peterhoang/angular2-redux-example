@@ -5,6 +5,8 @@ import { select } from 'ng2-redux';
 import { InfiniteScroll } from 'angular2-infinite-scroll';
 import { MarvelActions } from '../../actions/marvel.actions';
 import { MyAppSettings } from '../../app/my-app.settings';
+import { Map } from 'immutable';
+
 import 'rxjs/add/operator/combineLatest';
 import 'rxjs/add/operator/merge';
 import 'rxjs/add/operator/startWith';
@@ -20,6 +22,8 @@ export class ThumbnailGrid {
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'path']) path$: Observable<string>;
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'extension']) ext$: Observable<string>;
   @select(['marvel', 'data', 'results']) results$: Observable<Array<Object>>;
+  @select(['marvel', 'data']) data$: Observable<Array<Object>>;
+  @select(['marvel', 'attributionText']) attText$: Observable<string>;
 
   private characters$: Observable<Array<Object>>;
   private offset: number;
@@ -42,19 +46,20 @@ export class ThumbnailGrid {
         path: 'http://placehold.it/400x300'
       });
 
-    this.characters$ = this.results$
-      .filter(results => { return results != null; })
-      .map((results: any) => {
-        let characters = results.toJS();
-        let images = [];
-        characters.forEach(char => {
+    this.characters$ = this.data$
+      .map((data: any) => {
+        // Ugly solution for now: at the beginning of fresh app launch, the persistent store is deimmutify
+        // however, during app session, the reducer returns the store's state as immutable objects
+        if (Map.isMap(data)) {
+          data = data.toJS();
+        }
+
+        let character = data.results;        
+        character.forEach(char => {
           char.resolvedImage = (char.thumbnail.path + '/standard_amazing.' + char.thumbnail.extension);
         });
-        return characters;
+        return character;
       });
-      //.scan((acc: any, value: any) => {
-      //  return acc.concat(value);
-      //});
   }
 
   onScrollDown() {

@@ -1,4 +1,3 @@
-import { List } from 'immutable';
 import { TypedRecord } from 'typed-immutable-record';
 
 export interface IMarvelCharacter {
@@ -12,8 +11,7 @@ export interface IMarvelCharacterResults {
   offset: number;
   limit: number;
   total: number;
-  counter: number;
-  results: List<IMarvelCharacter>;
+  results: Array<IMarvelCharacter>;
 }
 export interface IMarvelCharacterResultsRecord extends TypedRecord<IMarvelCharacterResultsRecord>,
   IMarvelCharacterResults {
