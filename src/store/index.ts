@@ -1,5 +1,4 @@
 import { IAppState, rootReducer, deimmutify, reimmutify } from './store';
-import { ICounter } from './counter';
 import { ISession } from './session';
 import { IMarvel } from './marvel';
 
@@ -9,7 +8,6 @@ const persistState = require('redux-localstorage');
 export {
   IAppState,
   ISession,
-  ICounter,
   IMarvel,
   rootReducer,
   reimmutify,
