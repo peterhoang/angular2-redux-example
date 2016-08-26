@@ -19,6 +19,7 @@ import 'rxjs/add/operator/scan';
 export class ThumbnailGrid {
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'path']) path$: Observable<string>;
   @select(['marvel', 'data', 'results', 0, 'thumbnail', 'extension']) ext$: Observable<string>;
+  @select(['marvel', 'isLoading']) isLoading$: Observable<boolean>;
   @select(['marvel', 'data']) data$: Observable<Array<Object>>;
   @select(['marvel', 'attributionText']) attText$: Observable<string>;
 

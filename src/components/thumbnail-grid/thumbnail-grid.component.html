@@ -1,17 +1,31 @@
+<div *ngIf="(isLoading$ | async)" class="sk-cube-grid">
+  <div class="sk-cube sk-cube1"></div>
+  <div class="sk-cube sk-cube2"></div>
+  <div class="sk-cube sk-cube3"></div>
+  <div class="sk-cube sk-cube4"></div>
+  <div class="sk-cube sk-cube5"></div>
+  <div class="sk-cube sk-cube6"></div>
+  <div class="sk-cube sk-cube7"></div>
+  <div class="sk-cube sk-cube8"></div>
+  <div class="sk-cube sk-cube9"></div>
+</div>
+
 <div class="row" style="margin-top:40px;">
 
   <div class="col-xs-12">
     {{ attText$ | async }}
   </div>
 
-  <div *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-2">
-    <div class="card card-inverse" ngbPopover="{{ character.name }}" triggers="mouseenter:mouseleave">
-      <img class="img-fluid card-img" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
-      <div class="card-img-overlay">
-        <h6 class="card-title">{{ character.name }}</h6>
+
+    <div [hidden]="(isLoading$ | async)" *ngFor="let character of characters$ | async" class="col-xs-6 col-sm-2">
+      <div class="card card-inverse" ngbPopover="{{ character.name }}" triggers="mouseenter:mouseleave">
+        <img class="img-fluid card-img" src="{{ character.resolvedImage }}" alt="{{ character.name }}">
+        <div class="card-img-overlay">
+          <h6 class="card-title">{{ character.name }}</h6>
+        </div>
       </div>
     </div>
-  </div>
+
 </div>
 
 <div class="row">

@@ -47,7 +47,9 @@ export function marvelReducer(
       });
 
     case MarvelActions.GET_CHARACTERS:
-      return state;
+      return state.merge({
+        isLoading: true
+      });
 
     default:
       return state;
