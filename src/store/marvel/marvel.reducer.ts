@@ -29,7 +29,7 @@ export function marvelReducer(
         copyright: payload.copyright,
         attributionText: payload.attributionText,
         attributionHTML: payload.attributionHTML,
-        data: payload.data,
+        characters: payload.data,
         hasError: false,
         isLoading: false
       });
@@ -41,7 +41,7 @@ export function marvelReducer(
         copyright: null,
         attributionText: null,
         attributionHTML: null,
-        data: [],
+        characters: null,
         hasError: true,
         isLoading: false,
       });

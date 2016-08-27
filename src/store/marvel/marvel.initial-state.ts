@@ -27,7 +27,7 @@ export const MarvelFactory = makeTypedFactory<IMarvel, IMarvelRecord>({
   copyright: null,
   attributionText: null,
   attributionHTML: null,
-  data: MarvelCharacterResultsFactory(),
+  characters: MarvelCharacterResultsFactory(),
   hasError: false,
   isLoading: false
 });

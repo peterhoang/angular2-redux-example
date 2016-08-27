@@ -23,7 +23,7 @@ export interface IMarvel {
   copyright: string;
   attributionText: string;
   attributionHTML: string;
-  data: IMarvelCharacterResults;
+  characters: IMarvelCharacterResults;
   hasError: boolean;
   isLoading: boolean;
 }
