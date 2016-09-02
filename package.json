@@ -29,6 +29,7 @@
     "test": "karma start --singleRun true",
     "posttest": "npm run cover",
     "test:watch": "karma start --singleRun false",
+    "test:dev": "karma start --singleRun false --debug",
     "typings": "rimraf typings/ && typings install"
   },
   "repository": {
